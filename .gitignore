@@ -8,3 +8,4 @@ Gemfile.lock
 web/wp-config.php
 .DS_Store
 .bundle/
+.idea/
