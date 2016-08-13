@@ -1,14 +1,12 @@
-/**
-* Test
-*
-**/
+/* Variables */
+@import 'variables/variables';
 
-* {
-  color: red;
-}
-p {
-  background: red;
-}
-a {
-  color: grey;
-}
+/* Import general */
+@import 'general/meyer-reset';
+@import 'general/structure';
+@import 'general/fonts';
+
+/* Import pages */
+@import 'pages/_header';
+@import 'pages/footer';
+@import 'pages/front_page';
