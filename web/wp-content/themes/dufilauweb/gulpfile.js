@@ -3,21 +3,23 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
-var cssnano = require('gulp-cssnano');
 var del = require('del');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
+var cssmin = require('gulp-cssmin');
 
 var buildPath = './build';
 var srcPath = './src';
 var scssPath = srcPath+'/scss';
 var jsPath = srcPath+'/js';
 var imgPath = srcPath+'/images';
+var fontsPath = srcPath+'/fonts';
 var buildCssPath = buildPath+'/css';
 var buildJsPath = buildPath+'/js';
 var buildImgPath = buildPath+'/images';
+var buildFontsPath = buildPath+'/fonts';
 
 // clean
 gulp.task('clean', function(done) {
@@ -28,8 +30,8 @@ gulp.task('clean', function(done) {
 // sass compilation
 gulp.task('styles', function(){
     return gulp.src(scssPath+'/**/*.scss')
-        .pipe(cssnano())
         .pipe(sass().on('error', sass.logError))
+        .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(buildCssPath));
 });
@@ -51,9 +53,15 @@ gulp.task('images', function() {
         .pipe(gulp.dest(buildImgPath));
 });
 
+//fonts
+gulp.task('fonts', function() {
+    return gulp.src(fontsPath+'/**/*')
+        .pipe(gulp.dest(buildFontsPath));
+});
+
 gulp.task('watch', function() {
     gulp.watch(scssPath+'/**/*.scss', ['styles']);
     gulp.watch(jsPath+'/**/*.js', ['scripts']);
 });
 
-gulp.task('build', ['images','styles','scripts']);
+gulp.task('build', ['fonts', 'images','styles','scripts']);
