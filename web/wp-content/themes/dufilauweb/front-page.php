@@ -14,52 +14,84 @@
 
                 <?php if ($i == 0): ?>
 
-                    <article class="col span_9_of_12">
+                    <article class="col span_8_of_12 block block-large">
                         <div class="img">
                             <?php $thumbId = get_post_thumbnail_id(); ?>
                             <?php if (!empty($thumbId)): ?>
                                 <?php $img = wp_get_attachment_image_src($thumbId, 'medium'); ?>
-                                <img src="<?php echo $img[0]; ?>"
+                                <img src="<?php echo $img[0]; ?>"/>
                              <?php endif; ?>
                         </div>
-                        <div class="post-type">
+                        <div class="post-type post">
                             <?php $post_type_object = get_post_type_object(get_post_type()); ?>
                             <?php echo $post_type_object->labels->singular_name; ?>
                         </div>
-                        <h1><?php the_title(); ?></h1>
-                        <time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
                         <div class="content">
-                            <?php echo custom_excerpt(get_the_content(), 30); ?>
+                            <h1><?php the_title(); ?></h1>
+                            <time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
+                            <div class="excerpt">
+                                <?php echo custom_excerpt(get_the_content(), 30); ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'cfrt') ?>" class="read-more">
+                                    <?php _e("Lire l'article", 'cfrt'); ?>
+                                </a>
+                            </div>
+                            <div class="meta">
+                                <span class="nb-share">
+                                    <span class="icon-share"></span>
+                                    549 partages
+                                </span>
+                                <span class="nb-comment">
+                                    <span class="icon-comment"></span>
+                                    <?php comments_number( '0 commentaire', '1 commentaire', '% commentaires' ); ?>
+                                </span>
+                            </div>
                         </div>
                     </article>
 
-                    <div class="col span_3_of_12">
-                        <a href="" title="<?php _e('Aller à la liste des dossiers', 'dufilauweb'); ?>" class="more-folder">
+                    <div class="col span_4_of_12 cta_block desktop_only">
+                        <a href="" title="<?php _e('Aller à la liste des dossiers', 'dufilauweb'); ?>" class="folder">
                             <?php _e('Voir plus de dossiers', 'dufilauweb'); ?>
+                            <span class="icon-plus-alt"></span>
                         </a>
-                        <a href="" title="<?php _e('', 'dufilauweb'); ?>" class="more-posts">
+                        <a href="" title="<?php _e('', 'dufilauweb'); ?>" class="posts">
                             <?php _e("Voir plus d'articles", 'dufilauweb'); ?>
+                            <span class="icon-plus-alt"></span>
                         </a>
                     </div>
 
                 <?php else: ?>
 
-                    <article class="col span_4_of_12">
+                    <article class="col span_4_of_12 block">
                         <div class="img">
                             <?php $thumbId = get_post_thumbnail_id(); ?>
                             <?php if (!empty($thumbId)): ?>
-                                <?php $img = wp_get_attachment_image_src($thumbId, 'thumbnail', true); ?>
-                                <img src="<?php echo $img[0]; ?>"
+                                <?php $img = wp_get_attachment_image_src($thumbId, 'medium'); ?>
+                                <img src="<?php echo $img[0]; ?>"/>
                             <?php endif; ?>
                         </div>
-                        <div class="post-type">
+                        <div class="post-type post">
                             <?php $post_type_object = get_post_type_object(get_post_type()); ?>
                             <?php echo $post_type_object->labels->singular_name; ?>
                         </div>
-                        <h1><?php the_title(); ?></h1>
-                        <time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
                         <div class="content">
-                            <?php echo custom_excerpt(get_the_content(), 20); ?>
+                            <h1><?php the_title(); ?></h1>
+                            <time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
+                            <div class="excerpt">
+                                <?php echo custom_excerpt(get_the_content(), 20); ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'cfrt') ?>" class="read-more">
+                                    <?php _e("Lire l'article", 'cfrt'); ?>
+                                </a>
+                            </div>
+                            <div class="meta">
+                                <span class="nb-share">
+                                    <span class="icon-share"></span>
+                                    549 partages
+                                </span>
+                                <span class="nb-comment">
+                                    <span class="icon-comment"></span>
+                                    <?php comments_number( '0 commentaire', '1 commentaire', '% commentaires' ); ?>
+                                </span>
+                            </div>
                         </div>
                     </article>
 
@@ -67,6 +99,17 @@
 
                 <?php $i++; ?>
             <?php endwhile; ?>
+
+            <div class="cta_block tablet_only">
+                <a href="" title="<?php _e('Aller à la liste des dossiers', 'dufilauweb'); ?>" class="folder col span_12_of_12">
+                    <?php _e('Voir plus de dossiers', 'dufilauweb'); ?>
+                    <span class="icon-plus-alt"></span>
+                </a>
+                <a href="" title="<?php _e('', 'dufilauweb'); ?>" class="posts col span_12_of_12">
+                    <?php _e("Voir plus d'articles", 'dufilauweb'); ?>
+                    <span class="icon-plus-alt"></span>
+                </a>
+            </div>
 
         </div>
     <?php endif; ?>

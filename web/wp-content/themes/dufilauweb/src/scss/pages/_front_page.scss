@@ -1,0 +1,49 @@
+.cta_block {
+  height: 520px;
+  position: relative;
+
+  a {
+    height: 142px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 22px;
+    padding-top: 100px;
+
+    span {
+      &.icon-plus-alt {
+        display: block;
+        margin-top: 25px;
+        font-size: 25px;
+      }
+    }
+
+    &.posts {
+      background-color: #ea6060;
+      top: 0;
+    }
+
+    &.folder {
+      background-color: #56ccc8;
+      bottom: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+
+  .cta_block {
+    height: auto;
+    position: static;
+
+    a {
+      position: static;
+    }
+  }
+
+}
