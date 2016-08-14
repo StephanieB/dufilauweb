@@ -126,3 +126,17 @@ function moment($timestamp){
 		return strftime ('%A %e %B %G %H:%M', $timestamp);
 	}
 }
+
+//Pagination
+function pagination($query)
+{
+	$big = 999999999;
+	return paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $query->max_num_pages,
+		'prev_text' => '<span class="icon-caret-left"></span>',
+		'next_text' => '<span class="icon-caret-right"></span>'
+	) );
+}
