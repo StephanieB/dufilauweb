@@ -102,6 +102,38 @@ body {
       }
   }
 
+  .pagination {
+      text-align: center;
+      margin-top: 1.815%;
+      a {
+          text-decoration: none;
+      }
+
+      &.post {
+          a, span {
+            color: #ea6060;
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            vertical-align: middle;
+            padding: 2px 9px 2px 9px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &.next, &.prev {
+                vertical-align: top;
+            }
+
+            &.current {
+                background-color: #ea6060;
+                color: white;
+            }
+          }
+      }
+  }
+
 }
 
 @media only screen and (max-width: 930px) {

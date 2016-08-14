@@ -1,0 +1,50 @@
+.blog {
+  header {
+    .site_navigation {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.blog {
+  .filter {
+    background-color: #56ccc8;
+    text-align: center;
+
+      .select {
+          display: inline;
+          background: url('../images/arrow-down.png') no-repeat 126px center #56ccc8;
+          select {
+              border: 1px solid white;
+              width: 150px;
+              height: 30px;
+              outline: none;
+              color: white;
+              background: transparent;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              padding-left: 5px;
+
+              option {
+                color: white;
+              }
+          }
+      }
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  .blog {
+    .filter {
+
+      .select {
+        background: url('../images/arrow-down@2x.png') no-repeat 126px center #56ccc8;
+        background-size: 12px 8px;
+      }
+    }
+  }
+}

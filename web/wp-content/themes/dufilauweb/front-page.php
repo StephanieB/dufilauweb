@@ -65,7 +65,7 @@
                         <div class="img">
                             <?php $thumbId = get_post_thumbnail_id(); ?>
                             <?php if (!empty($thumbId)): ?>
-                                <?php $img = wp_get_attachment_image_src($thumbId, 'medium'); ?>
+                                <?php $img = wp_get_attachment_image_src($thumbId, 'thumbnail'); ?>
                                 <img src="<?php echo $img[0]; ?>"/>
                             <?php endif; ?>
                         </div>
