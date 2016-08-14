@@ -3,10 +3,11 @@
 
 /* Import general */
 @import 'general/meyer-reset';
-@import 'general/structure';
+@import 'general/grid';
 @import 'general/fonts';
+@import 'general/header';
+@import 'general/footer';
+@import 'general/structure';
 
 /* Import pages */
-@import 'pages/_header';
-@import 'pages/footer';
 @import 'pages/front_page';

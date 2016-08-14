@@ -78,7 +78,7 @@ add_action( 'after_setup_theme', 'add_html5_support_theme' );
 // Add one item in the footer menu
 function add_menu_item_theme ( $items, $args ) {
     if ($args->theme_location == 'footer menu') {
-        $items = '<li>© '.__('2015', 'dufilauweb').'</li>'.$items;
+        $items = '<li>© '.__('2015', 'dufilauweb').' </li>'.$items;
     }
     return $items;
 }
@@ -106,6 +106,7 @@ function custom_excerpt($text, $limit = 20, $more = '...')
 // Add CSS and JS
 function theme_scripts() {
     wp_enqueue_style( 'css', get_template_directory_uri().'/build/css/style.min.css' );
+	wp_enqueue_script( 'script', get_template_directory_uri().'/build/js/script.min.js', false );
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 

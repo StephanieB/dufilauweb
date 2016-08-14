@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../build/fonts/icomoon.eot?r4qk7t');
-  src:  url('../build/fonts/icomoon.eot?r4qk7t#iefix') format('embedded-opentype'),
-  url('../build/fonts/icomoon.ttf?r4qk7t') format('truetype'),
-  url('../build/fonts/icomoon.woff?r4qk7t') format('woff'),
-  url('../build/fonts/icomoon.svg?r4qk7t#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?d8lrct');
+  src:  url('../fonts/icomoon.eot?d8lrct#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?d8lrct') format('truetype'),
+  url('../fonts/icomoon.woff?d8lrct') format('woff'),
+  url('../fonts/icomoon.svg?d8lrct#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,6 +30,12 @@
 .icon-folder-open:before {
   content: "\e930";
 }
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
 .icon-share:before {
   content: "\ea7d";
 }
@@ -38,4 +44,7 @@
 }
 .icon-comment:before {
   content: "\f075";
+}
+.icon-caret-down:before {
+  content: "\f0d7";
 }

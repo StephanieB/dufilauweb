@@ -1,0 +1,79 @@
+/** Responsive Grid */
+
+.section {
+  clear: both;
+  padding: 0px;
+  max-width: 1100px;
+  margin: 0px auto 0px auto;
+}
+
+.col {
+  display: block;
+  float:left;
+  margin: 1.815% 1.815% 1.815% 1.815%;
+}
+
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF TWELVE  */
+.span_12_of_12 {
+  width: 96.36999999999996%;
+}
+
+.span_11_of_12 {
+  width: 88.03666666666663%;
+}
+.span_10_of_12 {
+  width: 79.7033333333333%;
+}
+
+.span_9_of_12 {
+  width: 71.36999999999997%;
+}
+
+.span_8_of_12 {
+  width: 63.03666666666664%;
+}
+
+.span_7_of_12 {
+  width: 54.70333333333331%;
+}
+
+.span_6_of_12 {
+  width: 46.36999999999998%;
+}
+
+.span_5_of_12 {
+  width: 40.03666666666665%;
+}
+
+.span_4_of_12 {
+  width: 29.70333333333332%;
+}
+
+.span_3_of_12 {
+  width: 21.36999999999999%;
+}
+
+.span_2_of_12 {
+  width: 13.03666666666666%;
+}
+
+.span_1_of_12 {
+  width: 4.70333333333333%;
+}
+
+@media only screen and (max-width: $tablet) {
+  .section {
+    padding: 0 1.815% 0 1.815%;
+  }
+
+  .col {  margin: 1.815% 0 1.815% 0%; }
+
+  .span_1_of_12, .span_2_of_12, .span_3_of_12, .span_4_of_12, .span_5_of_12, .span_6_of_12, .span_7_of_12, .span_8_of_12, .span_9_of_12, .span_10_of_12, .span_11_of_12, .span_12_of_12 {
+    width: 100%;
+  }
+}
