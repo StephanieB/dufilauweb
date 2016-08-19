@@ -12,7 +12,9 @@
 							'selected' => $cat
 						]); ?>
 					</div>
-					<button type="submit">OK</button>
+					<noscript>
+						<button type="submit" class="submit">OK</button>
+					</noscript>
 				</form>
 			</div>
 		</div>

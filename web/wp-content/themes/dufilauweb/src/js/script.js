@@ -28,12 +28,19 @@
 
             });
 
+        },
+
+        filterCategory: function() {
+            $('.filter form select').change(function() {
+                $(this).parents('form').submit();
+            });
         }
 
     };
 
     $(document).ready(function(){
         Site.mobileMenu();
+        Site.filterCategory();
     });
 
 })(jQuery);
