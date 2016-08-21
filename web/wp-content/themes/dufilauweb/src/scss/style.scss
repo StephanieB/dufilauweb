@@ -11,7 +11,9 @@
 @import 'general/header';
 @import 'general/footer';
 @import 'general/structure';
+@import 'general/comments';
 
 /* Import pages */
 @import 'pages/front_page';
 @import 'pages/blog';
+@import 'pages/single';

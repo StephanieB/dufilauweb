@@ -7,7 +7,7 @@
 					<?php $cat = get_query_var('cat'); ?>
 					<div class="select">
 						<?php wp_dropdown_categories([
-							'show_option_all' => __('Tous', 'cfrt'),
+							'show_option_all' => __('Tous', 'dufilauweb'),
 							'hide_empty' => true,
 							'selected' => $cat
 						]); ?>
@@ -58,19 +58,9 @@
 						<time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
 						<div class="excerpt">
 							<?php echo custom_excerpt(get_the_content(), 20); ?>
-							<a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'cfrt') ?>" class="read-more">
-								<?php _e("Lire l'article", 'cfrt'); ?>
+							<a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'dufilauweb') ?>" class="read-more">
+								<?php _e("Lire l'article", 'dufilauweb'); ?>
 							</a>
-						</div>
-						<div class="meta">
-                                <span class="nb-share">
-                                    <span class="icon-share"></span>
-                                    549 partages
-                                </span>
-							<span class="nb-comment">
-                                    <span class="icon-comment"></span>
-								<?php comments_number( '0 commentaire', '1 commentaire', '% commentaires' ); ?>
-                                </span>
 						</div>
 					</div>
 				</article>

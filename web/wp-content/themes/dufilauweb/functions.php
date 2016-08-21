@@ -115,13 +115,13 @@ function moment($timestamp){
 	setlocale(LC_TIME, 'fr_FR');
 	$dif = time() - $timestamp;
 	if($dif < 60){
-		return sprintf(__('Il y a %d secondes', 'cfrt'), $dif);
+		return sprintf(__('Il y a %d secondes', 'dufilauweb'), $dif);
 	}elseif( $dif < 3600){
 		$min = round($dif/60);
-		return sprintf(__('Il y a %d minutes', 'cfrt'), $min);
+		return sprintf(__('Il y a %d minutes', 'dufilauweb'), $min);
 	}elseif($dif <= 3600*5){
 		$h = round($dif/3600);
-		return  sprintf(__('Il y a %d heures', 'cfrt'), $h);
+		return  sprintf(__('Il y a %d heures', 'dufilauweb'), $h);
 	}else {
 		return strftime ('%A %e %B %G %H:%M', $timestamp);
 	}
@@ -140,3 +140,94 @@ function pagination($query)
 		'next_text' => '<span class="icon-caret-right"></span>'
 	) );
 }
+
+// Breadcrumb
+function breadcrumb()
+{
+    $post_type = get_post_type();
+    if ($post_type == 'post') {
+            $parent = BLOG_PAGE;
+            $terms = wp_get_post_terms(get_the_ID(), 'category');
+    } elseif ($post_type == 'dufilauweb_folder') {
+            $parent = FOLDER_PAGE;
+            $terms = wp_get_post_terms(get_the_ID(), 'dufilauweb_subject');
+
+    }
+
+    if (is_single()) {
+        echo '<div class="breadcrumb">';
+        echo '<ul>';
+        if (!empty($parent)) {
+            echo '<li>';
+            echo '<a href="'.get_permalink($parent).'" title="Aller à la page'.get_the_title($parent).'">';
+            echo get_the_title($parent);
+            echo '</a>';
+            echo '</li>';
+            echo '&nbsp;&rsaquo;&nbsp;';
+        }
+        if (!empty($terms)) {
+            echo '<li>';
+            $length = count($terms); $i = 1;
+            foreach ($terms as $term) {
+                echo $term->name;
+                if ($i < $length) {
+                    echo ', ';
+                }
+                $i++;
+            }
+            echo '</li>';
+        }
+        echo '</ul>';
+        echo '</div>';
+    }
+}
+
+// Comments
+function dufilauweb_comment($comment, $args, $depth) {
+    if ( 'div' === $args['style'] ) {
+        $tag       = 'div';
+        $add_below = 'comment';
+    } else {
+        $tag       = 'li';
+        $add_below = 'div-comment';
+    }
+    ?>
+    <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+    <?php if ( 'div' != $args['style'] ) : ?>
+        <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+    <?php endif; ?>
+    <div class="comment-author vcard">
+        <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+        <?php printf( __( '<cite class="fn">%s</cite>' ), get_comment_author_link() ); ?>
+    </div>
+
+    <div class="comment-meta commentmetadata">
+        <span> - </span>
+        <?php printf( __('Le %1$s à %2$s'), get_comment_date('j F Y'),  get_comment_time('H\hi') ); ?>
+        <?php edit_comment_link( __( ' - Modifier', 'cfrt' ), '  ', '' ); ?>
+    </div>
+
+    <?php comment_text(); ?>
+
+    <?php if ( $comment->comment_approved == '0' ) : ?>
+        <em class="comment-awaiting-moderation"><?php _e( 'Votre commentaire est en attente de modération.', 'cfrt' ); ?></em>
+        <br />
+    <?php endif; ?>
+
+    <div class="reply">
+        <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+    </div>
+    <?php if ( 'div' != $args['style'] ) : ?>
+        </div>
+    <?php endif; ?>
+    <?php
+}
+
+function move_comment_field_to_bottom( $fields ) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+}
+
+add_filter( 'comment_form_fields', 'move_comment_field_to_bottom' );

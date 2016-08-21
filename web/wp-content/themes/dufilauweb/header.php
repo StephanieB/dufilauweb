@@ -15,12 +15,12 @@
 <header>
     <div class="section group site-infos">
         <h1>
-            <a href="<?php bloginfo('url'); ?>" title="<?php _e("Aller à la page d'accueil", 'cfrt'); ?>">
+            <a href="<?php bloginfo('url'); ?>" title="<?php _e("Aller à la page d'accueil", 'dufilauweb'); ?>">
                 <?php bloginfo('name'); ?>
             </a>
         </h1>
         <p>
-            <a href="<?php bloginfo('url'); ?>" title="<?php _e("Aller à la page d'accueil", 'cfrt'); ?>">
+            <a href="<?php bloginfo('url'); ?>" title="<?php _e("Aller à la page d'accueil", 'dufilauweb'); ?>">
                 <?php bloginfo('description'); ?>
             </a>
         </p>
