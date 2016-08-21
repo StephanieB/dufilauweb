@@ -204,13 +204,13 @@ function dufilauweb_comment($comment, $args, $depth) {
     <div class="comment-meta commentmetadata">
         <span> - </span>
         <?php printf( __('Le %1$s à %2$s'), get_comment_date('j F Y'),  get_comment_time('H\hi') ); ?>
-        <?php edit_comment_link( __( ' - Modifier', 'cfrt' ), '  ', '' ); ?>
+        <?php edit_comment_link( __( ' - Modifier', 'dufilauweb' ), '  ', '' ); ?>
     </div>
 
     <?php comment_text(); ?>
 
     <?php if ( $comment->comment_approved == '0' ) : ?>
-        <em class="comment-awaiting-moderation"><?php _e( 'Votre commentaire est en attente de modération.', 'cfrt' ); ?></em>
+        <em class="comment-awaiting-moderation"><?php _e( 'Votre commentaire est en attente de modération.', 'dufilauweb' ); ?></em>
         <br />
     <?php endif; ?>
 

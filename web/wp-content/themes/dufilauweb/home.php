@@ -39,10 +39,12 @@
 				<article class="col span_4_of_12 block">
 					<div class="img">
 						<?php $thumbId = get_post_thumbnail_id(); ?>
-						<?php if (!empty($thumbId)): ?>
-							<?php $img = wp_get_attachment_image_src($thumbId, 'thumbnail'); ?>
-							<img src="<?php echo $img[0]; ?>"/>
-						<?php endif; ?>
+						<a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'dufilauweb') ?>">
+							<?php if (!empty($thumbId)): ?>
+								<?php $img = wp_get_attachment_image_src($thumbId, 'thumbnail'); ?>
+								<img src="<?php echo $img[0]; ?>"/>
+							<?php endif; ?>
+						</a>
 					</div>
 					<div class="post-type post">
 						<?php $categories = wp_get_post_categories(get_the_ID()); ?>
