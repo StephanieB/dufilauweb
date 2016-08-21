@@ -30,7 +30,7 @@
                 '</p>',
             'comment_notes_before' => '',
             'title_reply' => '',
-            'label_submit' => __('Valider', 'cfrt')
+            'label_submit' => __('Valider', 'dufilauweb')
         ]); ?>
     </div>
 

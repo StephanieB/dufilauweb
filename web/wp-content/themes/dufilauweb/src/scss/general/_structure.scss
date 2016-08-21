@@ -19,6 +19,7 @@ body {
             height: 200px;
             overflow: hidden;
             margin-bottom: 25px;
+            background-color: #787878;
 
             img {
               min-width: 100%;
@@ -26,7 +27,7 @@ body {
             }
           }
 
-          .post-type {
+          .post-type, .term {
               padding: 5px 15px 5px 25px;
               text-transform: uppercase;
               color: white;
@@ -43,6 +44,10 @@ body {
               }
           }
 
+          .term {
+            padding: 5px 35px 5px 25px;
+          }
+
           &.block-large {
 
               .content {
@@ -50,6 +55,21 @@ body {
                 overflow: hidden;
               }
 
+          }
+
+          &.block-very-large {
+            .img {
+              height: 300px;
+            }
+            .content {
+                height: auto;
+
+                h1 {
+                  &:first-child {
+                    text-transform: uppercase;
+                  }
+                }
+            }
           }
 
           .content {
@@ -83,6 +103,10 @@ body {
                     color: #ea6060;
                     text-decoration: none;
                     margin: 20px 0 20px 0;
+
+                    &:hover {
+                      text-decoration: underline;
+                    }
                   }
               }
 
