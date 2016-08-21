@@ -4,3 +4,10 @@
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+
+@mixin border-shadow($shadowX, $shadowY, $shadowZ, $color) {
+  -moz-box-shadow: $shadowX $shadowY $shadowZ $color;
+  -webkit-box-shadow: $shadowX $shadowY $shadowZ $color;
+  -o-box-shadow: $shadowX $shadowY $shadowZ $color;
+  box-shadow: $shadowX $shadowY $shadowZ $color;
+}

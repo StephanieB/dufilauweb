@@ -22,7 +22,7 @@
                                 <img src="<?php echo $img[0]; ?>"/>
                              <?php endif; ?>
                         </div>
-                        <div class="post-type post">
+                        <div class="post-type <?php echo get_post_type(); ?>">
                             <?php $post_type_object = get_post_type_object(get_post_type()); ?>
                             <?php echo $post_type_object->labels->singular_name; ?>
                         </div>
@@ -31,19 +31,9 @@
                             <time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
                             <div class="excerpt">
                                 <?php echo custom_excerpt(get_the_content(), 30); ?>
-                                <a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'cfrt') ?>" class="read-more">
-                                    <?php _e("Lire l'article", 'cfrt'); ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'dufilauweb') ?>" class="read-more">
+                                    <?php _e("Lire l'article", 'dufilauweb'); ?>
                                 </a>
-                            </div>
-                            <div class="meta">
-                                <span class="nb-share">
-                                    <span class="icon-share"></span>
-                                    549 partages
-                                </span>
-                                <span class="nb-comment">
-                                    <span class="icon-comment"></span>
-                                    <?php comments_number( '0 commentaire', '1 commentaire', '% commentaires' ); ?>
-                                </span>
                             </div>
                         </div>
                     </article>
@@ -69,7 +59,7 @@
                                 <img src="<?php echo $img[0]; ?>"/>
                             <?php endif; ?>
                         </div>
-                        <div class="post-type post">
+                        <div class="post-type <?php echo get_post_type(); ?>">
                             <?php $post_type_object = get_post_type_object(get_post_type()); ?>
                             <?php echo $post_type_object->labels->singular_name; ?>
                         </div>
@@ -78,19 +68,9 @@
                             <time><?php echo moment(strtotime(get_the_date('m/d/Y H:i'))); ?></time>
                             <div class="excerpt">
                                 <?php echo custom_excerpt(get_the_content(), 20); ?>
-                                <a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'cfrt') ?>" class="read-more">
-                                    <?php _e("Lire l'article", 'cfrt'); ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php _e('En savoir plus', 'dufilauweb') ?>" class="read-more">
+                                    <?php _e("Lire l'article", 'dufilauweb'); ?>
                                 </a>
-                            </div>
-                            <div class="meta">
-                                <span class="nb-share">
-                                    <span class="icon-share"></span>
-                                    549 partages
-                                </span>
-                                <span class="nb-comment">
-                                    <span class="icon-comment"></span>
-                                    <?php comments_number( '0 commentaire', '1 commentaire', '% commentaires' ); ?>
-                                </span>
                             </div>
                         </div>
                     </article>

@@ -116,6 +116,47 @@ header {
 
 }
 
+.single-dufilauweb_folder {
+  header {
+    .site_navigation {
+      nav {
+        ul {
+          li {
+            &.menu-item-48 {
+              a {
+                color: #f63c3c;
+                border-bottom: 3px solid #f63c3c;
+                padding-bottom: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.single-post {
+  header {
+    .site_navigation {
+      nav {
+        ul {
+          li {
+            &.menu-item-46 {
+              a {
+                color: #f63c3c;
+                border-bottom: 3px solid #f63c3c;
+                padding-bottom: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 930px) {
   header {
       .search {

@@ -79,6 +79,12 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+/**
+ * Page ID
+ */
+define('BLOG_PAGE', 9);
+define('FOLDER_PAGE', 11);
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
