@@ -3,9 +3,16 @@ web/core/*
 web/wp-content/uploads/*
 web/wp-content/themes/dufilauweb/node_modules/*
 web/wp-content/themes/dufilauweb/build/*
+web/wp-content/themes/twentyseventeen/*
 Gemfile
 Gemfile.lock
 web/wp-config.php
 .DS_Store
 .bundle/
 .idea/
+web/wp-content/languages/themes/twentyfifteen-*.mo
+web/wp-content/languages/themes/twentyfifteen-*.po
+web/wp-content/languages/themes/twentyseventeen-*.mo
+web/wp-content/languages/themes/twentyseventeen-*.po
+web/wp-content/languages/themes/twentysixteen-*.mo
+web/wp-content/languages/themes/twentysixteen-*.po
