@@ -1,8 +1,9 @@
 <?php
 
 // don't load directly
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
+}
 
 if ( ! empty( $post->id ) ) {
 	$nonce_action = 'flamingo-update-inbound_' . $post->id;
@@ -12,7 +13,6 @@ if ( ! empty( $post->id ) ) {
 
 ?>
 <div class="wrap columns-2">
-<?php screen_icon(); ?>
 
 <h1><?php echo esc_html( __( 'Inbound Message', 'flamingo' ) ); ?></h1>
 
