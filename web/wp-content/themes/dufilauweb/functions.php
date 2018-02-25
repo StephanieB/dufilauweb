@@ -50,8 +50,8 @@ function theme_create_custom_post_types() {
             'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions', 'post-formats'
         ],
         'rewrite' => [
-            'slug' => __('dossier', 'dufilauweb')
-        ]
+            'slug' => __('dossiers', 'dufilauweb')
+        ],
     ]);
 }
 add_action('init', 'theme_create_custom_post_types');
@@ -61,10 +61,14 @@ function theme_create_custom_taxonomies() {
     register_taxonomy('dufilauweb_subject', 'dufilauweb_folder', [
         'labels' => [
             'name' => __('Sujets', 'dufilauweb'),
-            'singular_name' => __('Sujet', 'dufilauweb')
+            'singular_name' => __('Sujet', 'dufilauweb'),
         ],
         'public' => true,
-        'hierarchical' => true
+        'hierarchical' => true,
+        'rewrite' => [
+            'slug' => __('dossier', 'dufilauweb'),
+            'hierarchical' => true,
+        ],
     ]);
 }
 add_action('init', 'theme_create_custom_taxonomies');
@@ -146,39 +150,43 @@ function breadcrumb()
 {
     $post_type = get_post_type();
     if ($post_type == 'post') {
-            $parent = BLOG_PAGE;
             $terms = wp_get_post_terms(get_the_ID(), 'category');
+            $permalink = get_permalink(BLOG_PAGE);
+            $title = get_the_title(BLOG_PAGE);
     } elseif ($post_type == 'dufilauweb_folder') {
-            $parent = FOLDER_PAGE;
             $terms = wp_get_post_terms(get_the_ID(), 'dufilauweb_subject');
-
+            $permalink = get_post_type_archive_link($post_type);
+            $title = _('Dossiers', 'dufilauweb');
     }
 
     if (is_single()) {
-        echo '<div class="breadcrumb">';
-        echo '<ul>';
-        if (!empty($parent)) {
+        if (!empty($terms)) {
+            echo '<div class="breadcrumb">';
+            echo '<ul>';
             echo '<li>';
-            echo '<a href="'.get_permalink($parent).'" title="Aller à la page'.get_the_title($parent).'">';
-            echo get_the_title($parent);
-            echo '</a>';
+            echo '<a href="'.$permalink.'" title="Aller à la page'.$title.'">'.$title.'</a>';
             echo '</li>';
             echo '&nbsp;&rsaquo;&nbsp;';
-        }
-        if (!empty($terms)) {
-            echo '<li>';
-            $length = count($terms); $i = 1;
+
             foreach ($terms as $term) {
-                echo $term->name;
-                if ($i < $length) {
-                    echo ', ';
+                $separate = ', ';
+                if (0 !== $term->parent && isset($term_id_before) && $term_id_before === $term->parent) {
+                    $separate = '&nbsp;&rsaquo;&nbsp;';
                 }
-                $i++;
+                if (isset($term_id_before)) {
+                    echo $separate;
+                }
+                echo '<li>';
+                echo '<a href="'.get_term_link($term).'" title="Aller à la page'.$term->name.'">';
+                echo $term->name;
+                echo '</a>';
+                echo '</li>';
+                $term_id_before= $term->term_id;
             }
-            echo '</li>';
+
+            echo '</ul>';
+            echo '</div>';
         }
-        echo '</ul>';
-        echo '</div>';
     }
 }
 
